@@ -1,0 +1,5 @@
+6.1) Najjasniejszy piksel 221
+Najciemniejszy piksel 7
+6.2) Nalezy usunac 149
+6.3) Istnieje 753 kontrastujacych pikseli
+6.4) Najdluzszy ciag ma dlugosc 5
