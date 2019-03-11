@@ -1,4 +1,6 @@
 import math
+
+
 with open("dane/dane_systemy1.txt", "r") as plik1:
     stacja1 = [line.strip().split() for line in plik1]
 
