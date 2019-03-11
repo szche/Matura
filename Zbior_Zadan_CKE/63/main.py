@@ -1,5 +1,3 @@
-
-
 with open("DANE/ciagi.txt", "r") as file:
     wszystko = [line.strip() for line in file]
 
