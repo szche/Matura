@@ -46,11 +46,12 @@ def wyznacz_pion(obraz, indeks):
 
 def sprawdz_poprawnosc(obraz):
     bezRamki = usun_ramke(obraz)
+    jestBladPoziom = False
+    jestBladPion = False
     for x, poziom in enumerate(bezRamki):
         poziomBit = poziom.count("1")%2
         ramkaPoziom = int(obraz[x][-1])
-        jestBladPoziom = False
-        jestBladPion = False
+        
         for y, pion in enumerate(poziom):
             pionBit = wyznacz_pion(bezRamki, y).count("1")%2
             ramkaPion = int(obraz[-1][y])
@@ -90,4 +91,5 @@ print('-' * 40)
 print("Jest {} obrazow rekurencyjnych, pierwszy z nich to: ".format(len(rekurencyjne)))
 wyswietl(usun_ramke(rekurencyjne[0]))
 print('-' * 40)
-print(nienaprawialne,naprawialne, poprawne)
+print("Jest {} prawidlowych, {} naprawialnych i {} nienaprawialnych".format(poprawne, naprawialne, nienaprawialne))
+
