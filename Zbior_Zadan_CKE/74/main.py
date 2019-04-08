@@ -65,7 +65,6 @@ print("74.1) Jest {} takich hasel".format(len(podpunkt_1)))
 print("74.2) Hasla uzyte wiecej niz dwa razy: ")
 for haslo in sorted(podpunkt_2):
     print(haslo)
-#Wedlug odpowiedzi ten wynik jest bledny, ale jak wyprintujesz sobie te hasla to wszystko sie zgadza (?)
 print("74.3) Jest {} hasel z ciagiem ASCII".format(len(podpunkt_3)))
 print("74.4) Jest {} hasel spelniajacych ten warunek".format(len(podpunkt_4)))
 
