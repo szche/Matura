@@ -12,20 +12,11 @@ def ciag_ASCII(haslo):
     #Podziel haslo na odcinki o dlugosci 4 znakow
     for i in range(-1, len(haslo)-4):
         odcinek = haslo[i+1::][:4]
-        zawiera = True
-        if odcinek[0] in cyfry:
-            rodzaj = cyfry
-        elif odcinek[0] in alfabet_lower:
-            rodzaj = alfabet_lower
-        elif odcinek[0] in alfabet_upper:
-            rodzaj = alfabet_upper
-        for znak in odcinek[1::]:
-            if znak not in rodzaj:
-                zawiera = False
-                break
-        if zawiera:
+        odcinek = sorted(odcinek)
+        if ord(odcinek[0])+1 == ord(odcinek[1]) and ord(odcinek[1])+1 == ord(odcinek[2]) and ord(odcinek[2])+1 == ord(odcinek[3]):
             return True
-    return False
+        
+            
 
 
 def czy_zawiera(haslo):
@@ -61,6 +52,7 @@ for haslo in hasla:
         if haslo not in podpunkt_2:
             podpunkt_2.append(haslo)
     if ciag_ASCII(haslo) == True:
+        print(haslo)
         podpunkt_3.append(haslo)
     if czy_zawiera(haslo) == True:
         podpunkt_4.append(haslo)
