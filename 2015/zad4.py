@@ -1,37 +1,28 @@
-wiecej_zer_niz_jedynek = []
-podzielna_2 = []
-podzielna_8 = []
-
-najmniejsza = []
+wiecej_zer_jedynek = []
+podzielne_2 = []
+podzielne_8 = []
 najwieksza = []
-
+najmniejsza = []
 with open("DANE/liczby.txt", "r") as file:
-    for nr, line in enumerate(file):
-        if line.endswith("\n"):
-            line = line[:len(line) -1]
-
-        # A)
+    for x, line in enumerate(file):
+        line = line.strip()
         if line.count("0") > line.count("1"):
-            wiecej_zer_niz_jedynek.append(line)
+            wiecej_zer_jedynek.append(line)
+        if int(line, 2)%2 == 0:
+            podzielne_2.append(line)
+        if int(line, 2)%8 == 0:
+            podzielne_8.append(line)
 
-        # B)
-        if line[-1] == "0":
-            podzielna_2.append(line)
-        if line[-1:-4:-1] == "000":
-            podzielna_8.append(line)
-
-        # C)
-        if nr == 0:
-            najmniejsza = [line, nr+1]
-            najwieksza = najmniejsza
-        if int(line, 2) > int(najwieksza[0], 2):
-            najwieksza = [line, nr+1]
-        if int(line, 2) < int(najmniejsza[0], 2):
-            najmniejsza = [line, nr+1]
+        if x == 0:
+            najwieksza = [line, x]
+            najmniejsza = [line, x]
+        elif int(najwieksza[0], 2) < int(line, 2):
+            najwieksza = [line, x]
+        elif int(line,2) < int(najmniejsza[0], 2):
+            najmniejsza = [line,x]
 
 print("-" * 40)
-print("WYNIKI")
-print("4.1)", len(wiecej_zer_niz_jedynek))
-print("4.2)", len(podzielna_2))
-print(len(podzielna_8))
-print("4.3)", "Najwieksza jest {} w linii {}, a najmniejsza jest {} w linii {}".format(najwieksza[0], najwieksza[1], najmniejsza[0], najmniejsza[1]))
+print("1) Jest {} takich liczb".format(len(wiecej_zer_jedynek)))
+print("2) Podzielne przez 2: {}\nPodzielne przez 8: {}".format(len(podzielne_2), len(podzielne_8)))
+print("3) Najwieksza liczba to {} w wierszu {}\nNajmniejsza liczba to {} w wierszu {}".format(najwieksza[0], najwieksza[1]+1, najmniejsza[0], najmniejsza[1]+1))
+
